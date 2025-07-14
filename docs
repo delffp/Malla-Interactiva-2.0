@@ -3,14 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <title>Malla Interactiva - Contador Público</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      padding: 20px;
+      color: #003366;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .anio {
+      margin: 30px auto;
+      max-width: 1000px;
+    }
+
+    .cuatrimestre {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0 30px 0;
+    }
+
+    .materia {
+      background-color: #b3d9ff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid #005b96;
+      width: 250px;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .materia:hover {
+      opacity: 0.9;
+    }
+
+    .materia.aprobada {
+      background-color: #004c99;
+      color: white;
+      font-weight: bold;
+    }
+
+    .materia.bloqueada {
+      background-color: #d6eaff;
+      color: #7a7a7a;
+      cursor: not-allowed;
+      border-style: dashed;
+    }
+
+    .materia.destacada {
+      box-shadow: 0 0 10px #00bfff;
+    }
+  </style>
 </head>
 <body>
   <h1>Malla Curricular Interactiva - Contador Público</h1>
-  <p>Hacé clic en una materia para marcarla como aprobada y desbloquear correlativas.</p>
+  <p style="text-align: center;">Hacé clic en una materia para marcarla como aprobada y desbloquear correlativas.</p>
 
+  <!-- ACA VAN TODAS LAS MATERIAS -->
   <div class="anio">
-    <h2>Primer Año - 1º Cuatrimestre</h2>
+    <h2>1º Año - 1º Cuatrimestre</h2>
     <div class="cuatrimestre">
       <div class="materia" data-id="1">Álgebra</div>
       <div class="materia" data-id="2">Administración General</div>
@@ -18,7 +76,8 @@
       <div class="materia" data-id="4">Introducción a la Contabilidad</div>
       <div class="materia" data-id="5">Instituciones del Derecho Privado I</div>
     </div>
-    <h2>Primer Año - 2º Cuatrimestre</h2>
+
+    <h2>1º Año - 2º Cuatrimestre</h2>
     <div class="cuatrimestre">
       <div class="materia" data-id="6">Historia Económica</div>
       <div class="materia bloqueada" data-id="7" data-correlativas="4,5">Contabilidad I</div>
@@ -26,170 +85,107 @@
       <div class="materia" data-id="9">Introducción a las Ciencias Sociales</div>
       <div class="materia bloqueada" data-id="10" data-correlativas="1">Análisis Matemático</div>
     </div>
-  </div>
 
-  <!-- SEGUNDO AÑO -->
-  <div class="anio">
-    <h2>Segundo Año - 1º Cuatrimestre</h2>
+    <h2>2º Año - 1º Cuatrimestre</h2>
     <div class="cuatrimestre">
       <div class="materia bloqueada" data-id="11" data-correlativas="2">Sistemas Administrativos</div>
       <div class="materia bloqueada" data-id="12" data-correlativas="7">Contabilidad II</div>
       <div class="materia bloqueada" data-id="13" data-correlativas="10">Microeconomía</div>
       <div class="materia bloqueada" data-id="14" data-correlativas="5,6">Derecho Constitucional y Administrativo</div>
     </div>
-    <h2>Segundo Año - 2º Cuatrimestre</h2>
+
+    <h2>2º Año - 2º Cuatrimestre</h2>
     <div class="cuatrimestre">
       <div class="materia bloqueada" data-id="15" data-correlativas="10">Estadística</div>
       <div class="materia bloqueada" data-id="16" data-correlativas="5">Instituciones del Derecho Privado II</div>
       <div class="materia bloqueada" data-id="17" data-correlativas="13">Macroeconomía</div>
-      <div class="materia bloqueada" data-id="18" data-correlativas="9,11">Comportamiento en las Organizaciones y Liderazgo</div>
+      <div class="materia bloqueada" data-id="18" data-correlativas="9,11">Comportamiento en las Organizaciones</div>
       <div class="materia bloqueada" data-id="19" data-correlativas="7,11">TIC</div>
+    </div>
+
+    <h2>3º Año - 1º Cuatrimestre</h2>
+    <div class="cuatrimestre">
+      <div class="materia bloqueada" data-id="20" data-correlativas="12,16">Contabilidad III</div>
+      <div class="materia bloqueada" data-id="21" data-correlativas="15">Matemática Financiera</div>
+      <div class="materia bloqueada" data-id="22" data-correlativas="7,14,16">Derecho del Trabajo</div>
+      <div class="materia bloqueada" data-id="23" data-correlativas="9,12,15">Metodología de la Investigación</div>
+      <div class="materia bloqueada" data-id="24" data-correlativas="14,17">Finanzas Públicas</div>
+    </div>
+
+    <h2>3º Año - 2º Cuatrimestre</h2>
+    <div class="cuatrimestre">
+      <div class="materia bloqueada" data-id="25" data-correlativas="7,16,24">Impuestos I</div>
+      <div class="materia bloqueada" data-id="26" data-correlativas="13,20">Costos</div>
+      <div class="materia bloqueada" data-id="27" data-correlativas="19,20,22">Taller de Informática Contable</div>
+      <div class="materia bloqueada" data-id="28" data-correlativas="24">Contabilidad Pública</div>
+    </div>
+
+    <h2>4º Año - 1º Cuatrimestre</h2>
+    <div class="cuatrimestre">
+      <div class="materia bloqueada" data-id="29" data-correlativas="25">Impuestos II</div>
+      <div class="materia bloqueada" data-id="30" data-correlativas="25,27">Taller de Práctica I</div>
+      <div class="materia bloqueada" data-id="31" data-correlativas="20,25">Estados Contables</div>
+      <div class="materia bloqueada" data-id="32" data-correlativas="18,27">Marketing Profesional</div>
+      <div class="materia bloqueada" data-id="33" data-correlativas="18,21,26">Gestión de las Organizaciones</div>
+    </div>
+
+    <h2>4º Año - 2º Cuatrimestre</h2>
+    <div class="cuatrimestre">
+      <div class="materia bloqueada" data-id="34" data-correlativas="23,27,31">Auditoría</div>
+      <div class="materia bloqueada" data-id="35" data-correlativas="29">Impuestos III</div>
+      <div class="materia bloqueada" data-id="36" data-correlativas="21,26,31">Administración Financiera</div>
+      <div class="materia bloqueada" data-id="37" data-correlativas="30,31">Concursos y Pericias</div>
+      <div class="materia bloqueada" data-id="38" data-correlativas="29,33">Proyectos</div>
+    </div>
+
+    <h2>5º Año - 1º Cuatrimestre</h2>
+    <div class="cuatrimestre">
+      <div class="materia bloqueada" data-id="39" data-correlativas="34,35,36,37,38">Taller de Práctica II</div>
+      <div class="materia bloqueada" data-id="40" data-correlativas="28,32,34,35,36,37,38">Práctica Profesional Supervisada</div>
     </div>
   </div>
 
-  <!-- TERCER AÑO -->
-<div class="anio">
-  <h2>Tercer Año - 1º Cuatrimestre</h2>
-  <div class="cuatrimestre">
-    <div class="materia bloqueada" data-id="20" data-correlativas="12,16">Contabilidad III</div>
-    <div class="materia bloqueada" data-id="21" data-correlativas="15">Matemática Financiera</div>
-    <div class="materia bloqueada" data-id="22" data-correlativas="7,14,16">Derecho del Trabajo y la Seguridad Social</div>
-    <div class="materia bloqueada" data-id="23" data-correlativas="9,12,15">Metodología de la Investigación</div>
-    <div class="materia bloqueada" data-id="24" data-correlativas="14,17">Finanzas Públicas</div>
-  </div>
+  <script>
+    const materias = document.querySelectorAll('.materia');
 
-  <h2>Tercer Año - 2º Cuatrimestre</h2>
-  <div class="cuatrimestre">
-    <div class="materia bloqueada" data-id="25" data-correlativas="7,16,24">Impuestos I</div>
-    <div class="materia bloqueada" data-id="26" data-correlativas="13,20">Costos</div>
-    <div class="materia bloqueada" data-id="27" data-correlativas="19,20,22">Taller de Informática Contable</div>
-    <div class="materia bloqueada" data-id="28" data-correlativas="24">Contabilidad Pública</div>
-  </div>
-</div>
+    materias.forEach(materia => {
+      materia.addEventListener('click', () => {
+        if (materia.classList.contains('bloqueada')) {
+          const correlativas = materia.dataset.correlativas?.split(',') || [];
+          alert('Para cursar esta materia debés aprobar: ' + correlativas.map(id => buscarNombre(id)).join(', '));
+          return;
+        }
 
-<!-- CUARTO AÑO -->
-<div class="anio">
-  <h2>Cuarto Año - 1º Cuatrimestre</h2>
-  <div class="cuatrimestre">
-    <div class="materia bloqueada" data-id="29" data-correlativas="25">Impuestos II</div>
-    <div class="materia bloqueada" data-id="30" data-correlativas="25,27">Taller de Práctica Profesional I</div>
-    <div class="materia bloqueada" data-id="31" data-correlativas="20,25">Estados Contables</div>
-    <div class="materia bloqueada" data-id="32" data-correlativas="18,27">Marketing Profesional</div>
-    <div class="materia bloqueada" data-id="33" data-correlativas="18,21,26">Gestión de las Organizaciones</div>
-  </div>
-
-  <h2>Cuarto Año - 2º Cuatrimestre</h2>
-  <div class="cuatrimestre">
-    <div class="materia bloqueada" data-id="34" data-correlativas="23,27,31">Auditoría</div>
-    <div class="materia bloqueada" data-id="35" data-correlativas="29">Impuestos III</div>
-    <div class="materia bloqueada" data-id="36" data-correlativas="21,26,31">Administración Financiera</div>
-    <div class="materia bloqueada" data-id="37" data-correlativas="30,31">Concursos, Quiebras y Actuación Pericial</div>
-    <div class="materia bloqueada" data-id="38" data-correlativas="29,33">Formulación y Administración de Proyectos</div>
-  </div>
-</div>
-
-<!-- QUINTO AÑO -->
-<div class="anio">
-  <h2>Quinto Año - 1º Cuatrimestre</h2>
-  <div class="cuatrimestre">
-    <div class="materia bloqueada" data-id="39" data-correlativas="34,35,36,37,38">Taller de Práctica Profesional II</div>
-    <div class="materia bloqueada" data-id="40" data-correlativas="28,32,34,35,36,37,38">Práctica Profesional Supervisada</div>
-  </div>
-</div>
-
-const materias = document.querySelectorAll('.materia');
-
-materias.forEach(materia => {
-  materia.addEventListener('click', () => {
-    if (materia.classList.contains('bloqueada')) {
-      const correlativas = materia.dataset.correlativas?.split(',') || [];
-      alert('Para cursar esta materia debés aprobar: ' + correlativas.map(id => buscarNombre(id)).join(', '));
-      return;
-    }
-
-    materia.classList.toggle('aprobada');
-
-    actualizarEstados();
-  });
-});
-
-function buscarNombre(id) {
-  const mat = document.querySelector(`.materia[data-id="${id}"]`);
-  return mat ? mat.textContent : "Desconocida";
-}
-
-function actualizarEstados() {
-  materias.forEach(materia => {
-    const correlativas = materia.dataset.correlativas?.split(',') || [];
-
-    if (correlativas.length > 0 && !materia.classList.contains('aprobada')) {
-      const todasAprobadas = correlativas.every(id => {
-        const correlativa = document.querySelector(`.materia[data-id="${id}"]`);
-        return correlativa && correlativa.classList.contains('aprobada');
+        materia.classList.toggle('aprobada');
+        actualizarEstados();
       });
+    });
 
-      if (todasAprobadas) {
-        materia.classList.remove('bloqueada');
-      } else {
-        materia.classList.add('bloqueada');
-      }
+    function buscarNombre(id) {
+      const mat = document.querySelector(`.materia[data-id="${id}"]`);
+      return mat ? mat.textContent : "Desconocida";
     }
-  });
-}
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f8ff;
-  padding: 20px;
-  color: #003366;
-}
+    function actualizarEstados() {
+      materias.forEach(materia => {
+        const correlativas = materia.dataset.correlativas?.split(',') || [];
 
-h1, h2 {
-  text-align: center;
-}
+        if (correlativas.length > 0 && !materia.classList.contains('aprobada')) {
+          const todasAprobadas = correlativas.every(id => {
+            const correlativa = document.querySelector(`.materia[data-id="${id}"]`);
+            return correlativa && correlativa.classList.contains('aprobada');
+          });
 
-.anio {
-  margin: 30px auto;
-  max-width: 1000px;
-}
+          if (todasAprobadas) {
+            materia.classList.remove('bloqueada');
+          } else {
+            materia.classList.add('bloqueada');
+          }
+        }
+      });
+    }
 
-.cuatrimestre {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px 0 30px 0;
-}
-
-.materia {
-  background-color: #b3d9ff; /* disponible */
-  padding: 15px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid #005b96;
-  width: 250px;
-  text-align: center;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-}
-
-.materia:hover {
-  opacity: 0.9;
-}
-
-.materia.aprobada {
-  background-color: #004c99; /* azul oscuro */
-  color: white;
-  font-weight: bold;
-}
-
-.materia.bloqueada {
-  background-color: #d6eaff; /* azul claro */
-  color: #7a7a7a;
-  cursor: not-allowed;
-  border-style: dashed;
-}
-
-.materia.destacada {
-  box-shadow: 0 0 10px #00bfff;
-}
+    actualizarEstados(); // Inicializar al cargar la página
+  </script>
+</body>
+</html>
